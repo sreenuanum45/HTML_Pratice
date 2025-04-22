@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QA Automation Engineer Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2a4d69;
+            --secondary-color: #4b86b4;
+            --accent-color: #63ace5;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --light-text: #6c757d;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --highlight-color: rgb(192, 243, 63);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #2a4d69, #4b86b4, #63ace5, #adcbe3);
+            background-size: 300% 300%;
+            animation: gradientBG 30s ease-in-out infinite;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+        
+        header {
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--highlight-color);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #fff;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        nav {
+            background-color: rgba(185, 217, 240, 0.95);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        nav ul li {
+            margin: 5px 15px;
+        }
+        
+        nav ul li a {
+            color: rgb(28, 22, 22);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(17, 250, 13, 0.2);
+            /* transform: translateY(-2px); */
+        }
+        
+        section {
+            padding: 60px 0;
+            position: relative;
+        }
+        
+        section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            font-size: 2rem;
+        }
+        
+        section h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            bottom: 0;
+            left: 50%;
+            /* transform: translateX(-50%); */
+        }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.15);
+            margin-bottom: 30px;
+            position: relative;
+            /* transition: transform 0.3s, box-shadow 0.3s; */
+            backdrop-filter: blur(5px);
+        }
+        
+        .card:hover {
+            /* transform: translateY(-5px); */
+            box-shadow: 0 16px 48px rgba(44, 62, 80, 0.25);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .about-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            /* transition: transform 0.3s; */
+        }
+        
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .stats-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-text {
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .skills-category {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .skills-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .skills-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .progress-wrapper {
+            height: 6px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            margin-top: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .experience-item {
+            margin-bottom: 40px;
+            border-left: 3px solid var(--secondary-color);
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -9px;
+            top: 5px;
+        }
+        
+        .experience-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .experience-company {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .experience-date {
+            color: var(--light-text);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .experience-list {
+            list-style: disc;
+            margin-left: 20px;
+        }
+
+        .experience-list li {
+            margin-bottom: 8px;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-img {
+            height: 200px;
+            background-color: var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .project-desc {
+            color: var(--text-color);
+            margin-bottom: 15px;
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            gap: 8px;
+        }
+        
+        .tech-tag {
+            font-size: 0.8rem;
+            background-color: #f0f7ff;
+            color: var(--secondary-color);
+            padding: 3px 10px;
+            border-radius: 15px;
+            border: 1px solid var(--accent-color);
+        }
+        
+        .education-item {
+            margin-bottom: 30px;
+            background-color: rgb(248, 247, 206);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .education-degree {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .education-school {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .education-date {
+            color: var(--light-text);
+        }
+        
+        .achievements-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .achievements-list li {
+            padding: 20px;
+            background-color: rgb(248, 247, 206);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            padding-left: 35px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            height: 100%;
+        }
+        
+        .achievements-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .achievements-list li::before {
+            content: '🏆';
+            position: absolute;
+            left: 10px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-item {
+            text-align: center;
+            padding: 30px;
+            background-color: rgb(200, 232, 168);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            height: 100%;
+        }
+        
+        .testimonial-item::before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .testimonial-position {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 172, 229, 0.2);
+            outline: none;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        button {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        button:hover {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(75, 134, 180, 0.3);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .social-links {
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            display: inline-block;
+            padding: 5px;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: var(--accent-color);
+        }
+        
+        .contact-info {
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .contact-info li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .contact-info li i {
+            margin-right: 10px;
+            color: var(--accent-color);
+        }
+        
+        .contact-info li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-info li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .framework-diagram {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .code-sample {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            font-family: monospace;
+            border: 1px solid #ddd;
+        }
+        
+        .code-sample pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+        
+        /* Particle canvas positioning */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
+            
+            .projects-grid,
+            .achievements-list,
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-container {
+                flex-direction: column;
+            }
+            
+            .stat-item {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 40px 0;
+            }
+            
+            .card-content {
+                padding: 15px;
+            }
+            
+            .experience-item {
+                padding-left: 15px;
+            }
+            
+            .contact-form {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Canvas -->
+    <canvas id="particle-canvas"></canvas>
+    
+    <header>
+        <div class="container header-content">
+            <h1>QA Automation Engineer</h1>
+            <p>Experienced in designing and implementing automated test frameworks for web, API, and mobile systems</p>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#frameworks">Frameworks</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>QA Automation Engineer with 2.4 years of experience designing and implementing automated test frameworks for web, API, and mobile systems. Proficient in Selenium WebDriver (Java), API testing (Postman, REST Assured), database validation (SQL/NoSQL), mobile testing with Appium, performance testing with JMeter, and cloud platforms like Sauce Labs and BrowserStack.</p>
+                            <p>Skilled in BDD-Cucumber, Agile-Scrum, and CI/CD integration (Jenkins, GitHub), with a focus on early risk identification and product quality improvement.</p>
+                            <p>I'm passionate about ensuring software quality through automation excellence and continuous improvement. My approach combines technical expertise with a deep understanding of business requirements to deliver reliable, high-quality software products.</p>
+                            <div class="stats-container">
+                                <div class="stat-item">
+                                    <div class="stat-number">500+</div>
+                                    <div class="stat-text">Test Cases Automated</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">35%</div>
+                                    <div class="stat-text">Reduced Regression Time</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number">25%</div>
+                                    <div class="stat-text">Fewer Post-Launch Defects</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="about-image">
+                            <img src="/api/placeholder/400/400" alt="Professional profile photo" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Technical Skills</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="skills-container">
+                        <div class="skills-category">
+                            <h3>Automation Tools</h3>
+                            <ul class="skills-list">
+                                <li>
+                                    Selenium WebDriver (Java)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Selenium Grid
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    TestNG
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Cucumber (BDD)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Maven
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Jenkins
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skills-category">
+                            <h3>API Testing</h3>
+                            <ul class="skills-list">
+                                <li>
+                                    REST Assured
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Postman
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    SoapUI
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    JSON/XML Schema Validation
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    API Mocking (WireMock)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Programming</h3>
+                            <ul class="skills-list">
+                                <li>
+                                    Core Java
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Python (Basics)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 60%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    JavaScript (Basics)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 65%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    HTML/CSS
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="skills-category">
+                            <h3>Database & Performance</h3>
+                            <ul class="skills-list">
+                                <li>
+                                    SQL (Complex Queries)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    MySQL / SQL Server
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    MongoDB (CRUD Operations)
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 75%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    JMeter
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    Gatling
+                                    <div class="progress-wrapper">
+                                        <div class="progress-bar" style="width: 70%"></div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="experience-item">
+                        <h3 class="experience-title">QA Automation Engineer</h3>
+                        <p class="experience-company">GETINFY SOLUTIONS</p>
+                        <p class="experience-date">Jan 2021 - Present</p>
+                        <ul class="experience-list">
+                            <li>Designed and implemented a robust test automation framework using Selenium WebDriver, TestNG, and Cucumber, reducing manual testing efforts by 70%.</li>
+                            <li>Automated 500+ test cases, slashing regression cycle time by 35% and improving coverage across web, API, and mobile applications.</li>
+                            <li>Integrated test framework with CI/CD pipeline (Jenkins, GitHub Actions), enabling automated test execution and reporting with each build.</li>
+                            <li>Implemented data-driven testing using Excel, CSV, and JSON for increased test coverage with minimal code duplication.</li>
+                            <li>Conducted API testing using REST Assured and Postman to validate response schemas, status codes, and business logic.</li>
+                            <li>Performed database validation using JDBC and MongoDB for data integrity verification across multiple systems.</li>
+                            <li>Integrated Extent Reports for real-time insights, ensuring zero-defect releases in 5+ production deployments.</li>
+                            <li>Conducted performance testing using JMeter to identify bottlenecks and optimize application performance.</li>
+                            <li>Collaborated with cross-functional teams to analyze requirements and develop comprehensive test strategies.</li>
+                            <li>Participated in Agile ceremonies, contributing to sprint planning, retrospectives, and daily stand-ups.</li>
+                            <li>Mentored junior QA engineers on automation best practices and framework usage.</li>
+                            <li>Contributed to knowledge sharing sessions, enhancing team skills in automation and testing methodologies.</li>
+                            <li>Worked with cloud platforms (Sauce Labs, BrowserStack) for cross-browser and mobile testing.</li>
+                            <li>Utilized Git for version control, ensuring code quality and collaboration within the team.</li>
+                            <li>Developed and maintained test documentation, including test plans, test cases, and defect reports.</li>
+                            </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" style="background-color: #f8f9fa;">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-card">
+                <img src="../images/download.jpeg" alt="Testimonial placeholder" />
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"I highly recommend QA Automation Engineer's expertise in test automation. They are a valuable asset to any software development team." - John Doe</p>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <img src="../images/download.jpeg" alt="Testimonial placeholder" />
+                <div class="testimonial-content">
+                    <p class="testimonial-text">"Their attention to detail and commitment to quality assurance is unmatched. They consistently deliver high-quality results." - Jane Smith</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <textarea placeholder="Message"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </section>
+    <section id="frameworks">
+        <div class="container">
+            <h2>Frameworks</h2>
+            <div class="framework-diagram">
+                <img src="../images/framework_diagram.png" alt="Framework Diagram" />
+            </div>
+        </div>
+    </section>
+    <section id="tools">
+        <div class="container">
+            <h2>Tools</h2>
+            <div class="card">
+                <div class="card-content">
+                    <div class="tools-container">
+                        <div class="tools-category">
+                            <h3>Version Control</h3>
+                            <ul class="tools-list">
+                                <li>Git</li>
+                                <li>GitHub</li>
+                                <li>Bitbucket</li>
+                            </ul>
+                        </div>
+                        <div class="tools-category">
+                            <h3>CI/CD</h3>
+                            <ul class="tools-list"
+                            <li>Jenkins</li>
+                                <li>GitHub Actions</li>
+                                <li>Travis CI</li>
+                            </ul>
+                        </div>
+                        <div class="tools-category">
+                            <h3>Testing</h3>
+                            <ul class="tools-list">
+                                <li>Selenium</li>
+                                <li>TestNG</li>
+                                <li>Appium</li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+
+
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 QA Automation Engineer. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particle-canvas", {
+        particles: {
+            number: { value: 80, density: { enable: true, value_area: 800 } },
+            color: { value: "#ffffff" },
+            shape: {
+                type: "circle",
+                stroke: { width: 0, color: "#000000" },
+                polygon: { nb_sides: 5 },
+                image: { src: "img/github.svg", width: 100, height: 100 }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
+            },
+            line_linked: {
+                enable_auto_color: false,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.4,
+                width: 1,
+                condensed_mode: { enable: false, rotateX: 600, rotateY: 1200 }
+            },
+            move: {
+                enable: true,
+                speed: 6,
+                direction: "none",
+                random: false,
+                straight: false,
+                out_mode: "out",
+                bounce: false,
+                attract: { enable: false, rotateX: 600, rotateY: 1200 }
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" },
+                resize: true
+            },
+            modes: {
+                grab: { distance: 400, line_linked: { opacity: 1 } },
+                bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 }
+            }
+        },
+        retina_detect: true,
+        config_demo: {
+            hide_card: false,
+            background_color: "#b61924",
+            background_image: "",
+            background_position: "50% 50%",
+            background_repeat: "no-repeat",
+            background_size: "cover"
+        }
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>  
+</body>
+</html>
+
+
+
+                
