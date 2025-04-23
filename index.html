@@ -49,6 +49,14 @@
             background-size: 300% 300%;
             animation: gradientBG 30s ease-in-out infinite;
             background: #F7E02F;
+            
+            /* font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+      border: 5px solid #ddd; */
+      box-sizing: border-box;
         }
         #about{
             background: #F7E02F;
@@ -132,38 +140,146 @@
             z-index: 100;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 3px solid;
+    border-image: linear-gradient(90deg, 
+        #4a6cf7 0%, 
+        #ff6b6b 25%, 
+        #4aec9e 50%, 
+        #f0f807 75%, 
+        #4a6cf7 100%);
+    border-image-slice: 1;
+    animation: border-animation 4s linear infinite;
+    border-bottom: 10px solid;
+    /* border-image: url('https://img.freepik.com/free-vector/golden-border-design_1053-246.jpg') 30 round; */
+    border-image-slice: 30;
+    border-image-repeat: round;
         }
         
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            flex-wrap: wrap;
-            margin: 20px,0;
-        }
+@keyframes border-animation {
+    0% { border-image-slice: 1; }
+    50% { border-image-slice: 2; }
+    100% { border-image-slice: 1; }
+}
+@keyframes gradient-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
         
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: #0077b5;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s;
-            padding: 5px 10px;
+    
+       
+        .nav-container {
+            background-color: #fff;
             border-radius: 10px;
-            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            /* max-width: 800px; */
+            width: 100%;
+            margin: 10px auto;
         }
-        nav{
-            margin: 0 0 20px 0;
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
         }
-        
-        nav ul li a:hover {
-            background-color: rgba(6, 216, 239, 0.2);
-            transform: translateY(-2px);
-            color: #3012ca;
+        nav li {
+            margin: 0;
         }
+        nav a {
+            display: inline-block;
+            padding: 12px 20px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 8px;
+            background-color: #4a6cf7;
+            box-shadow: 0 6px 0 #2c3eb1, 0 8px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.2s ease;
+            position: relative;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        nav a:hover {
+            transform: translateY(2px);
+            box-shadow: 0 4px 0 #2c3eb1, 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a:active {
+            transform: translateY(6px);
+            box-shadow: 0 0 0 #2c3eb1, 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        .resume-link {
+            background-color: #33c863;
+            box-shadow: 0 6px 0 #27a04f, 0 8px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .resume-link:hover {
+            box-shadow: 0 4px 0 #27a04f, 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .resume-link:active {
+            box-shadow: 0 0 0 #27a04f, 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .link-icon {
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        .hover-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        nav a:hover .hover-effect {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            
+            nav a {
+                width: 100%;
+                min-width: 150px;
+            }
+        }
+        nav::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg,
+        #4a6cf7,
+        #ff6b6b,
+        #4aec9e,
+        #f0f807,
+        #4a6cf7);
+    background-size: 400% 400%;
+    animation: gradient-flow 3s linear infinite;
+}
         
         section {
             padding: 60px 0;
@@ -1308,6 +1424,10 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         flex-wrap: wrap;
         gap: 15px;
+        border-image:url("https://www.toptal.com/designers/subtlepatterns/uploads/leaves.png");
+        border-width: 0 0 0 3px;
+        border-style: solid;
+        border-color: #57f72fbc;
     }
     
     .copyright p {
@@ -2232,56 +2352,64 @@ section {
   padding: 60px 0;
 }
   
-    .text-3d {
+/* Text 3D Effect */
+.text-3d {
+    color: #2a7ae2; /* Base blue color */
     text-shadow: 
-        0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
-        0 3px 0 #bbb,
-        0 4px 0 #b9b9b9,
-        0 5px 0 #aaa,
-        0 6px 1px rgba(0,0,0,.1),
-        0 0 5px rgba(0,0,0,.1),
-        0 1px 3px rgba(0,0,0,.3),
-        0 3px 5px rgba(0,0,0,.2),
-        0 5px 10px rgba(0,0,0,.25);
-    transform: perspective(1000px) translateZ(0);
-    transition: all 0.3s ease;
-}
-
-.text-3d-sub {
-    text-shadow: 
-        0 1px 0 #ddd,
-        0 2px 0 #d9d9d9,
-        0 3px 0 #ccc,
-        0 4px 0 #c9c9c9,
-        0 3px 5px rgba(0,0,0,.1);
-    transform: perspective(800px) translateZ(0);
-    transition: all 0.3s ease;
+        0 1px 0 #1a5fb4,
+        0 2px 0 #164a8f,
+        0 3px 0 #12376b,
+        0 4px 0 #97b7e6,
+        0 5px 0 #487bce,
+        0 6px 1px rgba(0,0,0,.15),
+        0 0 10px rgba(42,122,226,.4),
+        0 1px 5px rgba(0,0,0,.25),
+        0 3px 7px rgba(0,0,0,.3),
+        0 7px 15px rgba(0,0,0,.35);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .text-3d:hover {
+    color: #4a6cf7; /* Brighter blue-purple */
     text-shadow: 
-        0 1px 0 #ccc,
-        0 2px 0 #c9c9c9,
-        0 3px 0 #bbb,
-        0 4px 0 #b9b9b9,
-        0 5px 0 #aaa,
+        0 1px 0 #394bc2,
+        0 2px 0 #2f3da3,
+        0 3px 0 #252f7f,
+        0 4px 0 #a4abe7,
+        0 5px 0 #1323dd,
+        0 6px 1px rgba(0,0,0,.2),
+        0 0 15px rgba(74,108,247,.5),
+        0 1px 8px rgba(0,0,0,.35),
+        0 3px 10px rgba(0,0,0,.4),
+        0 7px 20px rgba(0,0,0,.45);
+    transform: perspective(1000px) translateZ(25px) scale(1.05);
+}
+
+.text-3d-sub {
+    color: #32e255; /* Fresh green */
+    text-shadow: 
+        0 1px 0 #86e89a,
+        0 2px 0 #1f8d37,
+        0 3px 0 #166428,
+        0 4px 0 #64cb7c,
+        0 5px 0 #74c890,
         0 6px 1px rgba(0,0,0,.1),
-        0 0 10px rgba(0,0,0,.2),
-        0 1px 5px rgba(0,0,0,.3),
-        0 3px 7px rgba(0,0,0,.25),
-        0 7px 15px rgba(0,0,0,.3);
-    transform: perspective(1000px) translateZ(20px);
+        0 0 8px rgba(50,226,85,.3),
+        0 1px 4px rgba(0,0,0,.2);
 }
 
 .text-3d-sub:hover {
+    color: #4aec9e; /* Cyan-green */
     text-shadow: 
-        0 1px 0 #eee,
-        0 2px 0 #e9e9e9,
-        0 3px 0 #ddd,
-        0 4px 0 #d9d9d9,
-        0 5px 5px rgba(0,0,0,.15);
-    transform: perspective(800px) translateZ(10px);
+        0 1px 0 #3ac987,
+        0 2px 0 #2fa06c,
+        0 3px 0 #237750,
+        0 4px 0 #a1f2ce,
+        0 5px 0 #64d0a3,
+        0 6px 1px rgba(0,0,0,.15),
+        0 0 12px rgba(74,236,158,.4),
+        0 1px 6px rgba(0,0,0,.25);
+    transform: perspective(800px) translateZ(15px) scale(1.02);
 }
     .cyber-border{
         background-color:#F7E02F;
@@ -2833,6 +2961,7 @@ footer.cyber-border {
 }
 /* Social Links Container */
 .social-links {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2966,6 +3095,54 @@ footer.cyber-border {
     transition: all 0.3s ease;
 }
 
+
+.bug {
+      position: absolute;
+      width: 75px; /* 3x larger than previous 25px */
+      height: 36px; /* 3x larger than previous 12px */
+      left: 0;
+      top: 0;
+      z-index: 2;
+      pointer-events: none;
+      transform-origin: center;
+    }
+
+    .bug svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Leg animations */
+    @keyframes legMove1 {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(20deg); }
+      100% { transform: rotate(0deg); }
+    }
+    
+    @keyframes legMove2 {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(-20deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    @keyframes antennaWiggle {
+      0% { transform: rotate(0deg); }
+      50% { transform: rotate(15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .speed-control {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      z-index: 10;
+    
+    }
+    
    
 </style>
     
@@ -2983,8 +3160,8 @@ footer.cyber-border {
             </p>
         </div>
     </header>
-    
-    <nav>
+    <div class="nav-container">
+    <nav >
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -3009,6 +3186,7 @@ footer.cyber-border {
               </li>
         </ul>
     </nav>
+    </div>
     
     <div class="container px-4 sm:px-6 lg:px-8 py-12">
         <div class="max-w-4xl mx-auto">
@@ -3747,6 +3925,68 @@ footer.cyber-border {
         console.log('Portfolio loaded successfully!');
     });
 </script>
+<!-- <div id="3d-bug" class="bug-container hidden">
+    <img src="https://i.gifer.com/18AC.gif" 
+         alt="3D Bug" 
+         class="rotating-bug">
+</div> -->
+<div class="bug">
+    <svg id="bug-svg" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+      <!-- Body segments - more anatomically correct -->
+      <ellipse cx="35" cy="20" rx="15" ry="10" fill="#871c1c" /> <!-- Abdomen - darker red -->
+      <ellipse cx="55" cy="20" rx="12" ry="8" fill="#a81e1e" /> <!-- Thorax -->
+      <ellipse cx="75" cy="20" rx="10" ry="7" fill="#b82020" /> <!-- Head -->
+      
+      <!-- Eyes -->
+      <ellipse cx="82" cy="17" rx="2" ry="1.5" fill="black" />
+      <ellipse cx="82" cy="23" rx="2" ry="1.5" fill="black" />
+      
+      <!-- Shell line -->
+      <path d="M20 20 Q35 10 50 20 Q65 30 80 20" stroke="#611414" stroke-width="1" fill="none" opacity="0.7" />
+      
+      <!-- Antennae -->
+      <g id="antenna1">
+        <path d="M80 16 Q85 12, 88 8" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      <g id="antenna2">
+        <path d="M80 24 Q85 28, 88 32" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      
+      <!-- Left Legs - thinner and more anatomical -->
+      <g id="leg1">
+        <path d="M45 15 Q40 10, 38 5" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      <g id="leg2">
+        <path d="M55 15 Q50 10, 48 6" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      <g id="leg3">
+        <path d="M65 15 Q60 10, 58 5" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      
+      <!-- Right Legs -->
+      <g id="leg4">
+        <path d="M45 25 Q40 30, 38 35" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      <g id="leg5">
+        <path d="M55 25 Q50 30, 48 34" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      <g id="leg6">
+        <path d="M65 25 Q60 30, 58 35" stroke="black" stroke-width="1" fill="none" />
+      </g>
+      
+      <!-- Subtle detail -->
+      <path d="M30 17 L40 17" stroke="#460c0c" stroke-width="0.5" fill="none" opacity="0.7" />
+      <path d="M30 23 L40 23" stroke="#460c0c" stroke-width="0.5" fill="none" opacity="0.7" />
+      <path d="M50 17 L60 17" stroke="#460c0c" stroke-width="0.5" fill="none" opacity="0.7" />
+      <path d="M50 23 L60 23" stroke="#460c0c" stroke-width="0.5" fill="none" opacity="0.7" />
+    </svg>
+  </div>
+
+  <div class="speed-control"  >
+    <label for="speed">Bug Speed: </label>
+    <input type="range" id="speed" min="1" max="10" value="3" aria-label="Speed control" >
+    <span id="speed-value">3</span>
+  </div>
 </body>
 <script>
     // Utility to generate a random hex color
@@ -3832,6 +4072,177 @@ document.querySelectorAll('.social-link').forEach(link => {
     rotateText(); // Show initial text
     setInterval(rotateText, 2500); // Change every 2.5s
 </script>
+<!-- <script>
+    // Add to your JavaScript
+    document.querySelectorAll('a').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+            // Get click position
+            const x = e.clientX;
+            const y = e.clientY;
+            
+            // Create bug element
+            const bug = document.getElementById('3d-bug');
+            bug.style.left = `${x - 50}px`;
+            bug.style.top = `${y - 50}px`;
+            bug.classList.add('visible');
+            bug.classList.remove('hidden');
+    
+            // Remove bug after animation
+            setTimeout(() => {
+                bug.classList.remove('visible');
+                bug.classList.add('hidden');
+            }, 2000);
+        });
+    });
+    </script> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const bug = document.querySelector('.bug');
+          const speedControl = document.getElementById('speed');
+          const speedValue = document.getElementById('speed-value');
+          
+          // Get all the legs and antennae
+          const legs = [
+            document.getElementById('leg1'),
+            document.getElementById('leg2'),
+            document.getElementById('leg3'),
+            document.getElementById('leg4'),
+            document.getElementById('leg5'),
+            document.getElementById('leg6')
+          ];
+          
+          const antennae = [
+            document.getElementById('antenna1'),
+            document.getElementById('antenna2')
+          ];
+          
+          // Set initial speed
+          let speed = 3; 
+          let position = 0;
+          let totalPathLength = 0;
+          let legAnimationSpeed = 200; // Base leg animation speed in ms
+          
+          // Get window dimensions
+          function updateDimensions() {
+            return {
+              width: window.innerWidth - 75, // Allow for bug size
+              height: window.innerHeight - 75
+            };
+          }
+          
+          let dimensions = updateDimensions();
+          
+          // Calculate total path length (perimeter)
+          totalPathLength = (dimensions.width + dimensions.height) * 2;
+          
+          // Handle window resize
+          window.addEventListener('resize', function() {
+            dimensions = updateDimensions();
+            totalPathLength = (dimensions.width + dimensions.height) * 2;
+          });
+          
+          // Update speed when the slider changes
+          speedControl.addEventListener('input', function() {
+            speed = parseInt(this.value);
+            speedValue.textContent = speed;
+            
+            // Update leg animation speed based on bug speed
+            legAnimationSpeed = 600 / speed;
+            updateLegAnimations();
+          });
+          
+          // Animate legs
+          function updateLegAnimations() {
+            // Clear any existing animations
+            legs.forEach(leg => {
+              leg.style.animation = 'none';
+            });
+            
+            antennae.forEach(antenna => {
+              antenna.style.animation = 'none';
+            });
+            
+            // Force reflow
+            void bug.offsetWidth;
+            
+            // Set new animations with alternating patterns for realistic walking
+            legs[0].style.animation = `legMove1 ${legAnimationSpeed}ms infinite`;
+            legs[2].style.animation = `legMove1 ${legAnimationSpeed * 1.1}ms infinite`;
+            legs[4].style.animation = `legMove1 ${legAnimationSpeed * 0.9}ms infinite`;
+            
+            legs[1].style.animation = `legMove2 ${legAnimationSpeed * 0.95}ms infinite`;
+            legs[3].style.animation = `legMove2 ${legAnimationSpeed * 1.05}ms infinite`;
+            legs[5].style.animation = `legMove2 ${legAnimationSpeed}ms infinite`;
+            
+            // Slightly different timing for more natural movement
+            legs[0].style.animationDelay = '0ms';
+            legs[1].style.animationDelay = `${legAnimationSpeed * 0.3}ms`;
+            legs[2].style.animationDelay = `${legAnimationSpeed * 0.1}ms`;
+            legs[3].style.animationDelay = `${legAnimationSpeed * 0.4}ms`;
+            legs[4].style.animationDelay = `${legAnimationSpeed * 0.2}ms`;
+            legs[5].style.animationDelay = `${legAnimationSpeed * 0.5}ms`;
+            
+            // Animate antennae
+            antennae[0].style.animation = `antennaWiggle ${legAnimationSpeed * 1.5}ms infinite`;
+            antennae[1].style.animation = `antennaWiggle ${legAnimationSpeed * 1.7}ms infinite ease-in-out`;
+            antennae[1].style.animationDelay = `${legAnimationSpeed * 0.75}ms`;
+          }
+          
+          // Initial leg animation setup
+          updateLegAnimations();
+          
+          // Function to move the bug along borders
+          function moveBug() {
+            position += speed * 0.3; // Slower movement for more realism
+            
+            // Reset if bug completes a full loop
+            if (position > totalPathLength) {
+              position = 0;
+            }
+            
+            // Determine which side the bug is on
+            let x, y, rotation;
+            
+            // Calculate position on the border
+            if (position <= dimensions.width) {
+              // Top border
+              x = position;
+              y = 0;
+              rotation = 0; // facing right
+            } else if (position <= dimensions.width + dimensions.height) {
+              // Right border
+              x = dimensions.width;
+              y = position - dimensions.width;
+              rotation = 90; // facing down
+            } else if (position <= 2 * dimensions.width + dimensions.height) {
+              // Bottom border
+              x = dimensions.width - (position - dimensions.width - dimensions.height);
+              y = dimensions.height;
+              rotation = 180; // facing left
+            } else {
+              // Left border
+              x = 0;
+              y = dimensions.height - (position - 2 * dimensions.width - dimensions.height);
+              rotation = 270; // facing up
+            }
+            
+            // Add slight body wiggle effect
+            const wiggle = Math.sin(position / 5) * 1.5;
+            
+            // Position the bug
+            bug.style.left = x + 'px';
+            bug.style.top = y + 'px';
+            
+            // Rotate the bug based on which side it's on, plus wiggle
+            bug.style.transform = `rotate(${rotation + wiggle}deg)`;
+            
+            requestAnimationFrame(moveBug);
+          }
+          
+          // Start the animation
+          moveBug();
+        });
+      </script>
     
 </html>
 
