@@ -3184,6 +3184,10 @@ footer.cyber-border {
              </a>
              
               </li>
+               <!-- Dark Mode Toggle Button -->
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+    <span id="theme-icon">🌙</span>
+  </button>
         </ul>
     </nav>
     </div>
@@ -3918,6 +3922,12 @@ footer.cyber-border {
             </div>
         </div>
     </div>
+   
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    ↑
+  </button>
 </footer>
 <script>
     // You can add interactive features here if needed
@@ -3984,7 +3994,7 @@ footer.cyber-border {
 
   <div class="speed-control"  >
     <label for="speed">Bug Speed: </label>
-    <input type="range" id="speed" min="1" max="10" value="3" aria-label="Speed control" >
+    <input type="range" id="speed" min="1" max="10" value="3" aria-label="Speed control" aria-valuenow="3"class="disabled" >
     <span id="speed-value">3</span>
   </div>
 </body>
@@ -4243,6 +4253,61 @@ document.querySelectorAll('.social-link').forEach(link => {
           moveBug();
         });
       </script>
+      <script>
+        // Back to top button functionality
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+          } else {
+            backToTopButton.classList.remove('visible');
+          }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+    
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+    
+        // Check for saved theme preference or use system preference
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme in localStorage
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && prefersDarkScheme.matches)) {
+          document.body.classList.add('dark-mode');
+          themeIcon.textContent = '☀️';
+        } else {
+          themeIcon.textContent = '🌙';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+          document.body.classList.toggle('dark-mode');
+          
+          if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+            themeIcon.textContent = '☀️';
+          } else {
+            localStorage.setItem('theme', 'light');
+            themeIcon.textContent = '🌙';
+          }
+        });
+      </script>
+      <script>
+        element.addEventListener('click', (e) => {
+  if (element.classList.contains('disabled')) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+});
+        </script>
     
 </html>
 
