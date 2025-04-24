@@ -33,6 +33,16 @@
             --background-color: #f8f9fa;
             --text-color: #333;
             --light-text: #6c757d;
+            --bg-light: #96b6e8;
+  --bg-dark: #a6eb75;
+  --text-light: #94b6ea;
+  --text-dark: #415c9c;
+  --card-bg: #e8f327;
+  --card-hover: rgba(46,204,113,0.1);
+  --transition: 0.3s ease;
+  --wave-color: #a5e5ed;
+    --wave-height: 100px;
+  
         }
         
         * {
@@ -57,7 +67,38 @@
       min-height: 100vh;
       border: 5px solid #ddd; */
       box-sizing: border-box;
+      background-color: var(--bg-light);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
         }
+        /* Dark theme */
+[data-theme="dark"] {
+  --card-bg: #2c2f33;
+  --wave-color: #192734;
+}
+[data-theme="dark"] body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  padding: 5px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+[data-theme="dark"] .theme-toggle-btn {
+  color: var(--text-light);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--card-hover);
+}
         #about{
             background: #F7E02F;
         }
@@ -1307,6 +1348,7 @@
         transition: all 0.3s;
         position: relative;
         padding-left: 15px;
+        margin: 0,auto;
     }
     
     .footer-nav ul li a:before {
@@ -1314,6 +1356,7 @@
         position: absolute;
         left: 0;
         transition: transform 0.3s;
+   
     }
     
     .footer-nav ul li a:hover {
@@ -1343,15 +1386,7 @@
     }
     
     .social-icon {
-        /* display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        background: rgba(225, 221, 4, 0.878);
-        border-radius: 50%;
-        color: var(--accent-color);
-        transition: all 0.3s; */
+        
         width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -1361,6 +1396,7 @@
     justify-content: center;
     font-size: 24px;
     transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(225, 221, 4, 0.878);
     }
     .social-icon:hover {
     transform: scale(1.2);
@@ -1601,7 +1637,8 @@ html {
 }
 
 #experience .container {
-    max-width: 1200px;
+  
+    width: 100%;
     margin: 0 auto;
     padding: 0 20px;
     height:  0 auto;
@@ -1721,7 +1758,7 @@ html {
 }
 
 #projects .container {
-  max-width: 1200px;
+ width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -2425,7 +2462,7 @@ section {
 }
 
 #achievements .container {
-  max-width: 1200px;
+ width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
@@ -2593,16 +2630,16 @@ section {
    /* Footer Section Styling */
 footer.cyber-border {
   position: relative;
-  background-color: #0f1218;
-  color: #ddd;
-  padding: 70px 0 30px;
+  background-color: #F7E02F;
+  color: #e81c1c;
+  /* padding: 70px 0 30px; */
   overflow: hidden;
   border-top: 3px solid #4a6cf7;
   box-shadow: 0 -10px 25px rgba(74, 108, 247, 0.2);
 }
 
 /* Animated Background */
-.animated-bg {
+/* .animated-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -2613,7 +2650,7 @@ footer.cyber-border {
   animation: gradientShift 15s ease infinite;
   opacity: 0.7;
   z-index: 1;
-}
+} */
 
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
@@ -2624,7 +2661,7 @@ footer.cyber-border {
 /* Add cyber grid lines */
 
 .container {
-  max-width: 1200px;
+width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   position: relative;
@@ -2896,10 +2933,10 @@ footer.cyber-border {
   }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   footer.cyber-border {
     padding: 50px 0 20px;
-  }
+  } */
   
   .footer-bottom {
     flex-direction: column;
@@ -2946,16 +2983,17 @@ footer.cyber-border::after {
 /* Subtle glow effect */
 footer.cyber-border {
   position: relative;
+  animation: glow 5s infinite;
 }
+
 
 @keyframes glow {
   0%, 100% { box-shadow: 0 -8px 20px rgba(74, 108, 247, 0.15); }
   50% { box-shadow: 0 -8px 25px rgba(74, 108, 247, 0.3); }
 }
 
-footer.cyber-border {
-  animation: glow 5s infinite;
-}
+
+  
 #contact{
     background-color: #F7E02F;
 }
@@ -3143,7 +3181,21 @@ footer.cyber-border {
     
     }
     
-   
+   /* CSS for the theme toggle button */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--text-dark);
+  padding: 5px;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--card-hover);
+}
 </style>
     
    
@@ -3161,8 +3213,8 @@ footer.cyber-border {
         </div>
     </header>
     <div class="nav-container">
-    <nav >
-        <ul>
+        <nav>
+          <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -3173,7 +3225,7 @@ footer.cyber-border {
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
             <li class="nav-item">
-                <a href="https://drive.google.com/file/d/1wRgo0_pIoRGnRMoGmhj-TuoLJWOfPJR4/view?usp=sharing"
+              <a href="https://drive.google.com/file/d/1wRgo0_pIoRGnRMoGmhj-TuoLJWOfPJR4/view?usp=sharing"
                 class="nav-link resume-link"
                 aria-label="View Resume Section"
                 target="_blank"
@@ -3181,16 +3233,17 @@ footer.cyber-border {
                 <span class="link-icon">📄</span>
                 <span class="link-text">Resume</span>
                 <span class="hover-effect"></span>
-             </a>
-             
-              </li>
-               <!-- Dark Mode Toggle Button -->
-  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-    <span id="theme-icon">🌙</span>
-  </button>
-        </ul>
-    </nav>
-    </div>
+              </a>
+            </li>
+             <!-- Wrap theme toggle button in li -->
+    <li>
+        <button id="themeToggle" class="theme-toggle-btn">
+            <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+    </li>
+          </ul>
+        </nav>
+      </div>
     
     <div class="container px-4 sm:px-6 lg:px-8 py-12">
         <div class="max-w-4xl mx-auto">
@@ -3857,7 +3910,7 @@ footer.cyber-border {
 
 <!-- Footer Section -->
 <footer class="cyber-border">
-    <div class="animated-bg"></div>
+    <!-- <div class="animated-bg"></div> -->
     <div class="container">
         <div class="card">
             <div class="footer-about">
@@ -4253,61 +4306,59 @@ document.querySelectorAll('.social-link').forEach(link => {
           moveBug();
         });
       </script>
+     
       <script>
-        // Back to top button functionality
-        const backToTopButton = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-          if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-          } else {
-            backToTopButton.classList.remove('visible');
-          }
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-          window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-          });
-        });
+        // Fixed JavaScript for theme toggling
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const htmlElement = document.documentElement;
+  const bodyElement = document.body;
+  
+  // Check for saved theme
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  
+  // Set initial theme
+  setTheme(savedTheme);
+  
+  // Toggle theme when button is clicked
+  themeToggle.addEventListener('click', function() {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
-        // Dark mode toggle functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = document.getElementById('theme-icon');
+    // Set the new theme
+    setTheme(newTheme);
     
-        // Check for saved theme preference or use system preference
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Check for saved theme in localStorage
-        if (localStorage.getItem('theme') === 'dark' || 
-            (!localStorage.getItem('theme') && prefersDarkScheme.matches)) {
-          document.body.classList.add('dark-mode');
-          themeIcon.textContent = '☀️';
-        } else {
-          themeIcon.textContent = '🌙';
-        }
-        
-        themeToggle.addEventListener('click', () => {
-          document.body.classList.toggle('dark-mode');
-          
-          if (document.body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-            themeIcon.textContent = '☀️';
-          } else {
-            localStorage.setItem('theme', 'light');
-            themeIcon.textContent = '🌙';
-          }
-        });
-      </script>
-      <script>
-        element.addEventListener('click', (e) => {
-  if (element.classList.contains('disabled')) {
-    e.preventDefault();
-    e.stopPropagation();
+    // Store the theme preference
+    localStorage.setItem('theme', newTheme);
+  });
+  
+  // Function to set theme and update visuals
+  function setTheme(theme) {
+    // Set data-theme attribute
+    htmlElement.setAttribute('data-theme', theme);
+    
+    // Update the icon
+    if (theme === 'dark') {
+      themeIcon.classList.remove('fa-moon');
+      themeIcon.classList.add('fa-sun');
+    } else {
+      themeIcon.classList.remove('fa-sun');
+      themeIcon.classList.add('fa-moon');
+    }
+    
+    // Force a repaint to ensure styles are applied
+    bodyElement.style.display = 'none';
+    setTimeout(() => {
+      bodyElement.style.display = '';
+    }, 1);
+    
+    console.log('Theme set to:', theme); // Debug output
   }
 });
-        </script>
+      </script>
+     
+    </body>
     
 </html>
 
